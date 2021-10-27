@@ -8,6 +8,5 @@ import upc.edu.pe.entities.Categoria;
 
 @Repository
 public interface ICategoriaRepository extends JpaRepository<Categoria, Integer> {
-	@Query("select count(l.nombreCategoria) from Categoria l where l.nombreCategoria=:name")
-	public int buscarCategoria(@Param("name") String nombre);
+
 }

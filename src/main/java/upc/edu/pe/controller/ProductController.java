@@ -11,10 +11,6 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-import upc.edu.pe.serviceinterface.ICategoryService;
-import upc.edu.pe.serviceinterface.IProductService;
-import upc.edu.pe.serviceinterface.ISupplierService;
-import upc.edu.pe.serviceinterface.IUploadFileService;
 
 import javax.validation.Valid;
 import java.io.IOException;
