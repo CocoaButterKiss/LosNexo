@@ -7,7 +7,7 @@ import java.util.List;
 public interface INotificacionService {
     public boolean insert(Notificacion notificacion);
     public void eliminar(int idNotificacion);
-    boolean modificar(Categoria categoria);
+    boolean modificar(Notificacion notificacion);
     List<Notificacion> list();
 }
 

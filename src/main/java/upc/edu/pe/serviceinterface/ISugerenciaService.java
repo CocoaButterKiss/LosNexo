@@ -6,8 +6,8 @@ import java.util.List;
 
 public interface ISugerenciaService {
     public boolean insert(Sugerencia sugerencia);
-    public void eliminar(int idCategoria);
-    boolean modificar(Categoria categoria);
+    public void eliminar(int idSugerencia);
+    boolean modificar(Sugerencia sugerencia);
     List<Sugerencia> list();
 }
 

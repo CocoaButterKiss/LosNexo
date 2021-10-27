@@ -1,6 +1,7 @@
 package upc.edu.pe.serviceimpl;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
 import upc.edu.pe.entities.Distrito;
 import upc.edu.pe.repository.ICategoriaRepository;
 import upc.edu.pe.repository.IDistritoRepository;
@@ -19,9 +20,11 @@ public class IDistritoServiceImpl implements IDistritoService {
     }
 
     @Override
+    @Transactional
     public boolean insert(Distrito distrito) {
         try {
             distritoRepository.save(distrito);
+
         } catch (Exception e) {
             System.out.println(e);
             return false;
@@ -35,6 +38,7 @@ public class IDistritoServiceImpl implements IDistritoService {
     }
 
     @Override
+    @Transactional
     public void eliminar(int idDistrito) {
         distritoRepository.deleteById(idDistrito);
 
@@ -42,6 +46,13 @@ public class IDistritoServiceImpl implements IDistritoService {
 
     @Override
     public boolean modificar(Distrito distrito) {
-        return false;
+        boolean flag = false;
+        try {
+            distritoRepository.save(distrito);
+            flag = true;
+        } catch (Exception ex) {
+            System.out.println("Sucedio un roche...");
+        }
+        return flag;
     }
 }
