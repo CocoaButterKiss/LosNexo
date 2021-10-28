@@ -1,56 +1,43 @@
 package upc.edu.pe.serviceimpl;
 
+import java.util.List;
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
 import upc.edu.pe.entities.Suscripcion;
-import upc.edu.pe.repository.INotificacionRepository;
-import upc.edu.pe.repository.ISugerenciaRepository;
 import upc.edu.pe.repository.ISuscripcionRepository;
 import upc.edu.pe.serviceinterface.ISuscripcionService;
 
-import java.util.List;
-
+@Service
 public class ISuscripcionServiceImpl implements ISuscripcionService {
 
-    private final ISuscripcionRepository suscripcionRepository;
+	@Autowired
+	private ISuscripcionRepository sR;
 
+	@Override
+	public boolean insert(Suscripcion suscripcion) {
+		Suscripcion objProduct = sR.save(suscripcion);
+		if (objProduct == null) {
+			return false;
+		} else {
+			return true;
+		}
+	}
+	@Override
+	public List<Suscripcion> list() {
+		// TODO Auto-generated method stub
+		return sR.findAll();
+	}
 
-    @Autowired
-    public ISuscripcionServiceImpl(ISuscripcionRepository suscripcionRepository) {
-        this.suscripcionRepository = suscripcionRepository;
-    }
+	@Override
+	@Transactional(readOnly = true)
+	public Suscripcion listarId(int idSuscripcion) {
+		Optional<Suscripcion> op = sR.findById(idSuscripcion);
+		return op.isPresent() ? op.get() : new Suscripcion();
+	}
 
-
-    @Override
-    public boolean insert(Suscripcion suscripcion) {
-        try {
-            suscripcionRepository.save(suscripcion);
-        } catch (Exception e) {
-            System.out.println(e);
-            return false;
-        }
-        return true;
-    }
-
-    @Override
-    public void eliminar(int idSuscripcion) {
-        suscripcionRepository.deleteById(idSuscripcion);
-
-    }
-
-    @Override
-    public boolean modificar(Suscripcion suscripcion) {
-        boolean flag = false;
-        try {
-            suscripcionRepository.save(suscripcion);
-            flag = true;
-        } catch (Exception ex) {
-            System.out.println("Sucedio un roche...");
-        }
-        return flag;
-    }
-
-    @Override
-    public List<Suscripcion> list() {
-        return suscripcionRepository.findAll();
-    }
 }
+
