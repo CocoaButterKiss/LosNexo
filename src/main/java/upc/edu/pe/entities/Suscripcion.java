@@ -1,10 +1,18 @@
 package upc.edu.pe.entities;
 
-import javax.persistence.*;
 import java.util.Date;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
 @Entity
-@Table(name = "Suscripcion")
+@Table(name = "suscripciones")
 
 public class Suscripcion {
 
@@ -14,7 +22,7 @@ public class Suscripcion {
 	
 	@ManyToOne
 	@JoinColumn(name = "idUsuario", nullable = false)
-	private Usuario Usuario;
+	private Usuario usuario;
 	
 	@Column(name = "NumeroTarjeta", nullable = false, length = 10)
 	private int NumeroTarjeta;
@@ -40,7 +48,7 @@ public class Suscripcion {
 			Date susInicio, Date susFin, float importe) {
 		super();
 		this.idSuscripcion = idSuscripcion;
-		this.Usuario = usuario;
+		this.usuario = usuario;
 		this.NumeroTarjeta = numeroTarjeta;
 		this.Cvv = cvv;
 		this.SusInicio = susInicio;
@@ -63,13 +71,13 @@ public class Suscripcion {
 
 
 	public Usuario getUsuario() {
-		return Usuario;
+		return usuario;
 	}
 
 
 
 	public void setUsuario(Usuario usuario) {
-		Usuario = usuario;
+		this.usuario = usuario;
 	}
 
 
