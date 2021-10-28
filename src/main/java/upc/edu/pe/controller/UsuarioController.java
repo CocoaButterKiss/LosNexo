@@ -19,8 +19,13 @@ import upc.edu.pe.serviceinterface.IUsuarioService;
 @Controller
 @RequestMapping("/usuarios")
 public class UsuarioController {
+
+    private final IUsuarioService uService;
+
 	@Autowired
-    private IUsuarioService uService;
+	public UsuarioController(IUsuarioService uService) {
+		this.uService = uService;
+	}
 
 	@GetMapping("/new")
     public String newUsuario(Model model) {

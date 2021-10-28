@@ -8,8 +8,6 @@ import upc.edu.pe.entities.Usuario;
 
 @Repository
 public interface IUsuarioRepository extends JpaRepository<Usuario, Integer> {
-	
-	@Query("select count(u.nombreUsuario) from Usuario u where u.nombreUsuario=:name")
-	public int usuariosExistentes(@Param("name")  String nombre);
-	
-        }
+
+
+}

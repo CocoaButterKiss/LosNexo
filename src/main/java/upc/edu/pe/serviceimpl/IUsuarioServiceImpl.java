@@ -10,17 +10,22 @@ import upc.edu.pe.serviceinterface.IUsuarioService;
 
 public class IUsuarioServiceImpl implements IUsuarioService {
 
-	@Autowired
     private  IUsuarioRepository uR;
 
+	@Autowired
+	public IUsuarioServiceImpl(IUsuarioRepository uR) {
+		this.uR = uR;
+	}
 
     @Override
-    public Integer insert(Usuario usuario) {
-    	int rpta = uR.usuariosExistentes(usuario.getNombreUsuario());
-		if (rpta == 0) {
+    public boolean insert(Usuario usuario) {
+		try {
 			uR.save(usuario);
+		} catch (Exception e) {
+			System.out.println(e);
+			return false;
 		}
-		return rpta;
+		return true;
 		}
     
 
