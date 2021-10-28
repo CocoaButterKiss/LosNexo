@@ -8,7 +8,6 @@ import upc.edu.pe.entities.Suscripcion;
 
 @Repository
 public interface ISuscripcionRepository extends JpaRepository<Suscripcion, Integer> {
-    @Query("select count(l.idSuscripcion) from Suscripcion l where l.usuario=:name")
-    public int buscarSuscripcion(@Param("name") String nombre);
+
 
 }
