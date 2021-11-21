@@ -1,6 +1,7 @@
 package upc.edu.pe.serviceimpl;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import upc.edu.pe.entities.Reunion;
 import upc.edu.pe.repository.INotificacionRepository;
 import upc.edu.pe.repository.IReunionRepository;
@@ -8,6 +9,7 @@ import upc.edu.pe.serviceinterface.IReunionService;
 
 import java.util.List;
 
+@Service
 public class IReunionServiceImpl implements IReunionService {
 
     private final IReunionRepository reunionRepository;

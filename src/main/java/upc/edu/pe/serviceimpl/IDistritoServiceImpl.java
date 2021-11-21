@@ -1,6 +1,7 @@
 package upc.edu.pe.serviceimpl;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import upc.edu.pe.entities.Distrito;
 import upc.edu.pe.repository.ICategoriaRepository;
@@ -9,6 +10,7 @@ import upc.edu.pe.serviceinterface.IDistritoService;
 
 import java.util.List;
 
+@Service
 public class IDistritoServiceImpl implements IDistritoService {
 
     private final IDistritoRepository distritoRepository;

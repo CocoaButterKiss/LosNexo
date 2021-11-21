@@ -1,6 +1,7 @@
 package upc.edu.pe.serviceimpl;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import upc.edu.pe.entities.TipoNotificacion;
 import upc.edu.pe.repository.INotificacionRepository;
 import upc.edu.pe.repository.ITiponotificacionRepository;
@@ -8,6 +9,7 @@ import upc.edu.pe.serviceinterface.ITipoNotificacionService;
 
 import java.util.List;
 
+@Service
 public class ITipoNotificacionServiceImpl implements ITipoNotificacionService {
     private final ITiponotificacionRepository notificacionRepository;
 

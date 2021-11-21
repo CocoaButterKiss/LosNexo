@@ -1,6 +1,7 @@
 package upc.edu.pe.serviceimpl;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import upc.edu.pe.entities.ListInvitado;
 import upc.edu.pe.repository.IDistritoRepository;
 import upc.edu.pe.repository.IListinvitadoRepository;
@@ -8,6 +9,7 @@ import upc.edu.pe.serviceinterface.IListInvitadoService;
 
 import java.util.List;
 
+@Service
 public class IListInvitadoServiceImpl implements IListInvitadoService {
 
     private final IListinvitadoRepository listinvitadoRepository;

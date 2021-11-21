@@ -1,12 +1,14 @@
 package upc.edu.pe.serviceimpl;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import upc.edu.pe.entities.Valoracion;
 import upc.edu.pe.repository.IValoracionRepository;
 import upc.edu.pe.serviceinterface.IValoracionService;
 
 import java.util.List;
 
+@Service
 public class IValoracionServiceImpl implements IValoracionService {
     private final IValoracionRepository valoracionRepository;
 

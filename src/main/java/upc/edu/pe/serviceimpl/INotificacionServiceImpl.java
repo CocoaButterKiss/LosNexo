@@ -1,12 +1,14 @@
 package upc.edu.pe.serviceimpl;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import upc.edu.pe.entities.Notificacion;
 import upc.edu.pe.repository.INotificacionRepository;
 import upc.edu.pe.serviceinterface.INotificacionService;
 
 import java.util.List;
 
+@Service
 public class INotificacionServiceImpl implements INotificacionService {
 
     private final INotificacionRepository notificacionRepository;
